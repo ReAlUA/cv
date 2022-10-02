@@ -1,0 +1,17 @@
+# Top in project
+root = true
+
+#
+[*]
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Sources
+[*.tex]
+indent_style = space
+indent_size = 2
+
+# Makefile
+[{Makefile,*.{mk,mak}}]
+indent_style = tab
