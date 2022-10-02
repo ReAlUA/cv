@@ -1,23 +1,10 @@
 % https://ctan.org/pkg/moderncv?lang=en
-
-%\documentclass[11pt,a4paper,sans]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
 \documentclass[11pt,a4paper]{moderncv}
-
-
-% Style: banking, casual, classic, fancy (broken?), oldstyle (broken?)
-% Color: black, blue, burgundy, green, grey, orange, purple, red
-%   \moderncvcolor{Color} + \moderncvstyle{Style}
-% or
-%   \moderncvtheme[Color]{Style}
-%
-%\moderncvtheme[blue]{classic}
-%\moderncvcolor{blue}
-\moderncvstyle{classic}
-
+\moderncvtheme[black]{classic}
 \usepackage[scale=0.8]{geometry}
 
+% Hide some details
 \provideboolean{forAbroad}
-%\setboolean{forAbroad}{true}
 \setboolean{forAbroad}{false}
 
 % Personal data
@@ -25,33 +12,30 @@
 \familyname{Redchuk}
 \title{Software Engineer}
 
-\ifthenelse{\boolean{forAbroad}}{%% then
+\ifthenelse{\boolean{forAbroad}}{%
+\address{Ukraine, Kyiv}
+}{%
 \address{Ukraine, Brovary (Kyiv rgn)}
-}{%% else
-\address{Ukraine, Brovary (Kyiv rgn)}
-}%% endif
-
+}%
 \mobile{+38 096 4858089}
 \email{oleksandr.redchuk@gmail.com}
 \photo[64pt][0pt]{images/photo1}
 \social[github]{ReAlUA}
 %\social[linkedin]{oleksandr-redchuk-7a8451165}
 
-\definecolor{web}{rgb}{0.2,0.2,0.2}
-
 % To show numerical labels in the bibliography; only useful if you make
 % citations in your resume
 \makeatletter
 \renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
 \makeatother
+%
+\definecolor{web}{rgb}{0.2,0.2,0.2}
 
 % Content
 \begin{document}
 
 % Remove "Bibliography" title in "thebibliography" block
 \renewcommand*{\bibliographyhead}[1]{}
-
-%\renewcommand{\listitemsymbol}{-~} % Changes the symbol used for lists
 
 \maketitle
 
@@ -60,14 +44,14 @@ Embedded software/hardware engineer with more than 25 years of professional expe
 Main industries are medical and automotive equipment, public safety (fire detection and alarm).
 The main area of expertise is Linux kernel, RTOS, firmwares on ARM-based devices
 as well as 8-bit microcontrollers.
-For the last 4 years mostly work on downstreamed kernels (driver development and customization) and
+For the last 4 years has been mostly working on downstreamed kernels (driver development and customization) and
 RTOS-based firmware on Cortex-A (32-bit) + Cortex-M heterogeneous SoC.
 Has prior background in design of embedded devices including SW and HW: electronics, algorithms,
 Bare-Metal and RTOS-based firmware development.
 
 \section{Experience}
 \cventry{2021--Present}{Software Engineer}{Auto-talks}{}{}
-  {Projects: Automotive V2X devices.\newline{}
+  {Projects: Automotive V2X devices.\\
     Role: Driver development in Linux kernel, firmware development
     \begin{itemize}
       \item Custom kernel driver development
@@ -77,15 +61,15 @@ Bare-Metal and RTOS-based firmware development.
       \item Hardware debugging
     \end{itemize}}
 \cventry{2020--2021}{Software Engineer}{GlobalLogic}{Kyiv}{}
-  {Project: Medical IoT device (ESP32, FreeRTOS)\newline{}
-    Role: Leading of a small team, SW/HW development.
+  {Project: Medical IoT device (ESP32, FreeRTOS)\\
+    Role: Leading a small team, SW/HW development.
     \begin{itemize}
       \item Development and optimization of algorithms
       \item Developing data acqusition and processing software
       \item Hardware debugging, schematic fixing and optimization
     \end{itemize}}
 \cventry{2018--2021}{Software Engineer}{GlobalLogic}{Kyiv}{}
-  {Project: Automotive device.\newline{}
+  {Project: Automotive device.\\
     Role: Driver development in Linux kernel, firmware development
     \begin{itemize}
       \item Custom WiFi driver implementing and speed optimization
@@ -95,7 +79,7 @@ Bare-Metal and RTOS-based firmware development.
       \item Bug fixing (drivers, device tree)
     \end{itemize}}
 \cventry{2006--2018}{Chief SW/HW engineer}{Ista-Sital}{Kyiv}{}
-  {Projects: Fire detection and I/O devices.\newline{}
+  {Projects: Fire detection and I/O devices.\\
     Role: Driver development in Linux kernel, firmware development
     \begin{itemize}
       \item Custom WiFi driver implementing and speed optimization
@@ -105,7 +89,7 @@ Bare-Metal and RTOS-based firmware development.
       \item Bug fixing (drivers, device tree)
     \end{itemize}}
 \cventry{2015--2017}{SW/HW engineer (part time)}{National Aviation University}{Kyiv}{}
-  {Project: Dedicated dead reckoning module — GPS emulator for Ardupilot mega.\newline{}
+  {Project: Dedicated dead reckoning module — GPS emulator for Ardupilot mega.\\
     Role: SW/HW development
     \begin{itemize}
       \item FORTRAN to C++ code porting
@@ -114,7 +98,7 @@ Bare-Metal and RTOS-based firmware development.
     \end{itemize}}
 \cventry{1999--2006}{Head of Electronic Systems Department}{Teleoptic}{Kyiv}{}
   {Project: Line of multi-sensor medical digital X-ray detectors (international patent
-WO2006049589A1 and Ukraine patent)\newline{}
+WO2006049589A1 and Ukraine patent)\\
     Role: SW/HW development
     \begin{itemize}
       \item CCD cameras and data acquisition system (AFE and digital part) hardware design.
@@ -124,8 +108,8 @@ WO2006049589A1 and Ukraine patent)\newline{}
       \item Windows 98/NT/XP control/data communication DLL
     \end{itemize}}
 
-\cvitem{1985--1999}{\textit{Many interesting but outdated projects}%\newline{}
-% See details on LnkedIn \cite{c} TODO: add it
+\cvitem{1985--1999}{\textit{Many interesting but outdated projects}%\\
+% See details on LnkedIn \cite{c} % TODO: add it
 }
 
 \section{Education}
@@ -145,50 +129,33 @@ WO2006049589A1 and Ukraine patent)\newline{}
 
 \section{Languages}
 \cvlanguage{Ukrainian}{Fluent}{My native language}
-% FIXME: Hide for internal? Remove "native"?
-\ifthenelse{\boolean{forAbroad}}{%% then
+\iffalse{%
 \cvlanguage{Russian}{Fluent}{My native language}
-}{%% else
-}%% endif
+}\fi
 \cvlanguage{English}{Intermediate}{Speaking, reading and writing}
 
 \section{Other Activities}
 
 \cvitem{2017--Today}{Translation of techical books from English to Ukrainian
     \begin{itemize}
-      \item \textit{CLRS 3d ed.} (translator)
+      \item \textit{CLRS 3rd ed.} (translator)
       \item \textit{"Python crash course"} (editor)
       \item new projects --- work in progress...
     \end{itemize}}
-\vskip-1em % compensate space after itemize?
-\cvitem{2016--Today}{Member on StackOverflow (>1k reputation) \cite{a}}
+\vskip-1em % compensate extra space after itemize
+\cvitem{2017--Today}{Member on StackOverflow (>1k reputation) \cite{stackoverflow}}
 \cvitem{2020--2021}{Instructor of Linux kernel courses}
 \cvitem{1998--2018}{Creator of AVReAl -- AVR ISP programming software for MS-DOS, Windows,
-Linux and FreeBSD \cite{b}}
+Linux and FreeBSD \cite{avreal}}
 
 \section{References}
 
-% FIXME: Large interval
-\begin{thebibliography}{4}
-\bibitem{a} {\color{web} \url{https://stackoverflow.com/users/8848476/real}}
-% https://github.com/Kernel-GL-HRK/gl-kernel-training-2021
-\bibitem{b} {\color{web} \url{https://real.kyiv.ua/avreal/}}
+% TODO: Make smalle interval
+\begin{thebibliography}{9}
+\bibitem{stackoverflow} {\color{web} \url{https://stackoverflow.com/users/8848476/real}}
+%\bibitem{glkt2021} {\color{web} \url{https://github.com/Kernel-GL-HRK/gl-kernel-training-2021}}
+\bibitem{avreal} {\color{web} \url{https://real.kyiv.ua/avreal/}}
 \end{thebibliography}
 
 \end{document}
-
-% \provideboolean{newvariant}
-% \setboolean{newvariant}{true}
-% \ifthenelse{\boolean{newvariant}}{%%%% then
-% }{%%%% else
-% }%%%% endif
-
-% \iftrue{% (iffalse)
-% }\else{%
-% }\fi
-
-% 2007-2011
-% https://scmrtos.sourceforge.net/Team
-% https://sourceforge.net/u/avreal/profile -- broken history? only shows two commits
-% https://github.com/scmrtos/scmrtos -- moved to github without old history,
 
