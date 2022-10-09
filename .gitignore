@@ -3,3 +3,5 @@
 *.out
 *.swp
 *.rubbercache
+*.pdf
+!or-cv.pdf

@@ -50,24 +50,28 @@ Has prior background in design of embedded devices including SW and HW: electron
 Bare-Metal and RTOS-based firmware development.
 
 \section{Experience}
-\cventry{2021--Present}{Software Engineer}{Auto-talks}{}{}
+
+\cventry{2021--Present}{Software Engineer}{Autotalks}{}{}
   {Projects: Automotive V2X devices.\\
     Role: Driver development in Linux kernel, firmware development
     \begin{itemize}
       \item Custom kernel driver development
-      \item Adding new features to standard kernel drivers
+      \item Adding new features to existing kernel drivers
       \item Migrating to new kernel version
       \item Bug fixing (drivers, device tree, frimware)
       \item Hardware debugging
     \end{itemize}}
+
 \cventry{2020--2021}{Software Engineer}{GlobalLogic}{Kyiv}{}
-  {Project: Medical IoT device (ESP32, FreeRTOS)\\
-    Role: Leading a small team, SW/HW development.
+  {Project: Medical IoT device\\
+    Role: Leading a small team, SW\kern-0.2em/HW development\\
+    Technologies: ESP32, FreeRTOS
     \begin{itemize}
       \item Development and optimization of algorithms
-      \item Developing data acqusition and processing software
+      \item Development of data acqusition and processing software
       \item Hardware debugging, schematic fixing and optimization
     \end{itemize}}
+
 \cventry{2018--2021}{Software Engineer}{GlobalLogic}{Kyiv}{}
   {Project: Automotive device.\\
     Role: Driver development in Linux kernel, firmware development
@@ -76,33 +80,47 @@ Bare-Metal and RTOS-based firmware development.
       \item Hardware encryption accelerator driver speed optimization
       \item Adding new features to standard kernel drivers
       \item Firmware development (Cortex-M)
-      \item Bug fixing (drivers, device tree)
+      \item Bug fixing (drivers, firmware)
     \end{itemize}}
-\cventry{2006--2018}{Chief SW/HW engineer}{Ista-Sital}{Kyiv}{}
-  {Projects: Fire detection and I/O devices.\\
-    Role: Development of EN54-compliant addressable fire detection and alarm system components:
+
+\iftrue{% Short version
+\cventry{2006--2018}{Chief SW\kern-0.2em/HW engineer}{Ista-Sital}{Kyiv}{}
+  {Projects: EN54-compliant addressable fire detection and alarm system components.\\
+    Role: Development of hardware and embedded software.\\
+    Technologies: STM32L0, STM32F1, AVR
     \begin{itemize}
-      \item Creating of own loop-powered addressable devices protocol
-      \item Smoke and heat detectors (AVR), manual call point and IO modules (STM32L0), loop controller for testing/technology purposes (STM32F1).
-        \begin{itemize}
-          \item Hardware design (schematics, control over the design of printed circuit boards)
-          \item Embedded software development (AVR --- assembler, STM32L0/F1 --- C)
-        \end{itemize}
-      \item Participation in the creation of a smoke/heat test tunnel
-      \item Sertification support
+      \item Creation of own loop-powered addressable devices protocol
+      \item Smoke and heat detectors, manual call point and IO modules
+      \item Loop controller for testing purposes
+      \item Certification support
     \end{itemize}}
-\cventry{2015--2017}{SW/HW engineer (part time)}{National Aviation University}{Kyiv}{}
+}\else{% More details
+\cventry{2006--2018}{Chief SW\kern-0.2em/HW engineer}{Ista-Sital}{Kyiv}{}
+  {Projects: EN54-compliant addressable fire detection and alarm system components.\\
+    Role: Development of software and hardware (schematics, control over the design of PCBs)\\
+    Technologies: STM32L0, STM32F1, AVR; C, Assembler
+    \begin{itemize}
+      \item Creation of own loop-powered addressable devices protocol
+      \item Smoke and heat detectors, manual call point and IO modules
+      \item Loop controller for testing/technology purposes
+      \item Participation in the creation of a smoke/heat test tunnel
+      \item Certification support
+    \end{itemize}}
+}\fi
+
+\cventry{2015--2017}{SW\kern-0.2em/HW engineer (part time)}{National Aviation University}{Kyiv}{}
   {Project: Dedicated dead reckoning module — GPS emulator for Ardupilot mega.\\
-    Role: SW/HW development
+    Role: SW\kern-0.2em/HW development
     \begin{itemize}
       \item FORTRAN to C++ code porting
-      \item test-vector-based PC verification.
+      \item Test-vector-based PC verification.
       \item Implementation in microcontroller (STM32F303)
     \end{itemize}}
+
 \cventry{1999--2006}{Head of Electronic Systems Department}{Teleoptic}{Kyiv}{}
   {Project: Line of multi-sensor medical digital X-ray detectors (international patent
 WO2006049589A1 and Ukraine patent)\\
-    Role: SW/HW development
+    Role: SW\kern-0.2em/HW development
     \begin{itemize}
       \item CCD cameras and data acquisition system (AFE and digital part) hardware design.
       \item Non-standard CCD timing design.
