@@ -1,7 +1,7 @@
 % https://ctan.org/pkg/moderncv?lang=en
 \documentclass[11pt,a4paper]{moderncv}
 \moderncvtheme[black]{classic}
-\usepackage[scale=0.8]{geometry}
+\usepackage[scale=0.8, top=2cm, bottom=2cm]{geometry}
 
 % Hide some details
 \provideboolean{forAbroad}
@@ -80,13 +80,16 @@ Bare-Metal and RTOS-based firmware development.
     \end{itemize}}
 \cventry{2006--2018}{Chief SW/HW engineer}{Ista-Sital}{Kyiv}{}
   {Projects: Fire detection and I/O devices.\\
-    Role: Driver development in Linux kernel, firmware development
+    Role: Development of EN54-compliant addressable fire detection and alarm system components:
     \begin{itemize}
-      \item Custom WiFi driver implementing and speed optimization
-      \item Hardware encryption accelerator driver speed optimization
-      \item Adding new features to standard kernel drivers
-      \item Firmware development (Cortex-M)
-      \item Bug fixing (drivers, device tree)
+      \item Creating of own loop-powered addressable devices protocol
+      \item Smoke and heat detectors (AVR), manual call point and IO modules (STM32L0), loop controller for testing/technology purposes (STM32F1).
+        \begin{itemize}
+          \item Hardware design (schematics, control over the design of printed circuit boards)
+          \item Embedded software development (AVR --- assembler, STM32L0/F1 --- C)
+        \end{itemize}
+      \item Participation in the creation of a smoke/heat test tunnel
+      \item Sertification support
     \end{itemize}}
 \cventry{2015--2017}{SW/HW engineer (part time)}{National Aviation University}{Kyiv}{}
   {Project: Dedicated dead reckoning module — GPS emulator for Ardupilot mega.\\
