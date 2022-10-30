@@ -4,18 +4,21 @@
 \usepackage[scale=0.8, top=2cm, bottom=2cm]{geometry}
 
 % Hide some details
-\provideboolean{forAbroad}
-\setboolean{forAbroad}{false}
+\provideboolean{addrBrovary}
+\setboolean{addrBrovary}{true}
+%
+\provideboolean{linkToLectures}
+\setboolean{linkToLectures}{true}
 
 % Personal data
 \firstname{Oleksandr}
 \familyname{Redchuk}
 \title{Software Engineer}
 
-\ifthenelse{\boolean{forAbroad}}{%
-\address{Ukraine, Kyiv}
-}{%
+\ifthenelse{\boolean{addrBrovary}}{%
 \address{Ukraine, Brovary (Kyiv rgn)}
+}{%
+\address{Ukraine, Kyiv}
 }%
 \mobile{+38 096 4858089}
 \email{oleksandr.redchuk@gmail.com}
@@ -165,7 +168,9 @@ WO2006049589A1 and Ukraine patent)\\
     \end{itemize}}
 \vskip-1em % compensate extra space after itemize
 \cvitem{2017--Today}{Member on StackOverflow (>1k reputation) \cite{stackoverflow}}
-\cvitem{2020--2021}{Instructor of Linux kernel courses \cite{glkt2020}}
+\cvitem{2020--2021}{Instructor of Linux kernel courses
+\ifthenelse{\boolean{linkToLectures}}{\cite{glkt2020}}{(GlobalLogic)}
+}
 \cvitem{1998--2018}{Creator of AVReAl -- AVR ISP programming software for MS-DOS, Windows,
 Linux and FreeBSD \cite{avreal}}
 
@@ -174,7 +179,9 @@ Linux and FreeBSD \cite{avreal}}
 % TODO: Make smalle interval
 \begin{thebibliography}{9}
 \bibitem{stackoverflow} {\color{web} \url{https://stackoverflow.com/users/8848476/real}}
+\ifthenelse{\boolean{linkToLectures}}{%
 \bibitem{glkt2020} {\color{web} \url{https://github.com/ReAlUA/kernel-lectures}}
+}{}%
 %\bibitem{glkt2021} {\color{web} \url{https://github.com/Kernel-GL-HRK/gl-kernel-training-2021}}
 \bibitem{avreal} {\color{web} \url{https://real.kyiv.ua/avreal/}}
 \end{thebibliography}
