@@ -3,12 +3,24 @@
 \moderncvtheme[black]{classic}
 \usepackage[scale=0.8, top=2cm, bottom=2cm]{geometry}
 
-% Hide some details
+% Show/hide some details
 \provideboolean{addrBrovary}
 \setboolean{addrBrovary}{true}
 %
+\provideboolean{showLi}
+\setboolean{showLi}{true}
+%
 \provideboolean{linkToLectures}
 \setboolean{linkToLectures}{true}
+%
+\provideboolean{showPatentsInline}
+\setboolean{showPatentsInline}{true}
+%
+\provideboolean{showPatentsSection}
+\setboolean{showPatentsSection}{false}
+%
+\provideboolean{showOld}
+\setboolean{showOld}{true}
 
 % Personal data
 \firstname{Oleksandr}
@@ -23,8 +35,12 @@
 \mobile{+38 096 4858089}
 \email{oleksandr.redchuk@gmail.com}
 \photo[64pt][0pt]{images/photo1}
+\ifthenelse{\boolean{showLi}}{%
+  \social[linkedin]{oleksandr-redchuk-7a8451165}
+  \social[stackoverflow]{8848476/real}
+  %\extrainfo{\protect\httpslink[real.kiev.ua]{real.kiev.ua}}
+}{}
 \social[github]{ReAlUA}
-%\social[linkedin]{oleksandr-redchuk-7a8451165}
 
 % To show numerical labels in the bibliography; only useful if you make
 % citations in your resume
@@ -43,24 +59,26 @@
 \maketitle
 
 \section{Summary}
-Embedded software/hardware engineer with more than 25 years of professional experience.
+Embedded software/hardware engineer with more than 30 years of professional experience.
 Main industries are medical and automotive equipment, public safety (fire detection and alarm).
-The main area of expertise is Linux kernel, RTOS, firmwares on ARM-based devices
+The main area of expertise is Linux kernel, RTOS, bare-metal firmware on ARM-based devices
 as well as 8-bit microcontrollers.
-For the last 4 years has been mostly working on downstreamed kernels (driver development and customization) and
-RTOS-based firmware on Cortex-A (32-bit) + Cortex-M heterogeneous SoC.
-Has prior background in design of embedded devices including SW and HW: electronics, algorithms,
-Bare-Metal and RTOS-based firmware development.
+For the last 5 years has been mostly working on downstreamed kernels (driver development and customization) and
+RTOS-based firmware on Cortex-A (32-bit) + \mbox{Cortex-M} heterogeneous SoC.
+Has prior background in design of embedded devices including SW and HW: analog and digital electronics,
+algorithms, Bare-Metal and RTOS-based firmware development.
 
 \section{Experience}
 
 \cventry{2021--Present}{Software Engineer}{Autotalks}{}{}
   {Projects: Automotive V2X devices.\\
-    Role: Driver development in Linux kernel, firmware development
+    Role: Driver development in Linux kernel, RTOS-based firmware and bootloader development
+    Techologies: Cortex-A, Cortex-M; C, Assembler;
     \begin{itemize}
       \item Custom kernel driver development
       \item Adding new features to existing kernel drivers
-      \item Migrating to new kernel version
+      \item Migrating to the new kernel version
+      \item Firmware development
       \item Bug fixing (drivers, device tree, frimware)
       \item Hardware debugging
     \end{itemize}}
@@ -86,12 +104,13 @@ Bare-Metal and RTOS-based firmware development.
       \item Bug fixing (drivers, firmware)
     \end{itemize}}
 
-\iftrue{% Short version
+\iftrue{% Shorter version
 \cventry{2006--2018}{Head of SW\kern-0.2em/HW development}{Ista-Sital}{Kyiv}{}
   {Projects: EN54-compliant addressable fire detection and alarm system components.\\
-    Role: Development of hardware and embedded software.\\
-    Technologies: STM32L0, STM32F1, AVR
+    Role: Development of software and hardware (schematics, supervising of PCB development)\\
+    Technologies: STM32L0, STM32F1, AVR; C, Assembler
     \begin{itemize}
+      \item System-level design
       \item Creation of own loop-powered addressable devices protocol
       \item Smoke and heat detectors, manual call point and IO modules
       \item Loop controller for testing purposes
@@ -100,9 +119,11 @@ Bare-Metal and RTOS-based firmware development.
 }\else{% More details
 \cventry{2006--2018}{Head of SW\kern-0.2em/HW development}{Ista-Sital}{Kyiv}{}
   {Projects: EN54-compliant addressable fire detection and alarm system components.\\
-    Role: Development of software and hardware (schematics, control over the design of PCBs)\\
+    Patents: Registered design patent №14301 "Optical-electronic fire smoke detector" (Ukraine) \\
+    Role: Development of software and hardware (schematics, supervising of PCB development)\\
     Technologies: STM32L0, STM32F1, AVR; C, Assembler
     \begin{itemize}
+      \item System-level design
       \item Creation of own loop-powered addressable devices protocol
       \item Smoke and heat detectors, manual call point and IO modules
       \item Loop controller for testing/technology purposes
@@ -121,9 +142,12 @@ Bare-Metal and RTOS-based firmware development.
     \end{itemize}}
 
 \cventry{1999--2006}{Head of Electronic Systems Department}{Teleoptic}{Kyiv}{}
-  {Project: Line of multi-sensor medical digital X-ray detectors (international patent
-WO2006049589A1 and Ukraine patent)\\
-    Role: SW\kern-0.2em/HW development
+  {Project: Line of multi-sensor medical digital X-ray detectors.\\
+\ifthenelse{\boolean{showPatentsInline}}{%
+Patents: UA77289C2 "X-ray receiver" (Ukraine), US7496177B2 "X-ray converter" (USA), DE602005013577D1 (Germany).  Utility model patnet UA1282U "Device for printing multi-format images on photosensitive film" (Ukraine).\\
+}{}
+    Role: SW\kern-0.2em/HW development\\
+    Technologies: Altera MAX3K, Cyclone, AVR, LPC17xx; C, Assembler, AHDL, Verilog
     \begin{itemize}
       \item CCD cameras and data acquisition system (AFE and digital part) hardware design.
       \item Non-standard CCD timing design.
@@ -132,9 +156,39 @@ WO2006049589A1 and Ukraine patent)\\
       \item Windows 98/NT/XP control/data communication DLL
     \end{itemize}}
 
-\cvitem{1985--1999}{\textit{Many interesting but outdated projects}%\\
-% See details on LnkedIn \cite{c} % TODO: add it
-}
+\ifthenelse{\boolean{showOld}}{%
+  \cventry{1995-2005}{SW\kern-0.2em/HW engineer (part time)}{Ista-Sital}{Kyiv}{}{Main projects:
+    \begin{itemize}
+      \item Monitoring and video surveillance system.
+      \item Electronic taximeter Pulsar-U with radio-modem interface to the local payment system.
+      \item Interfaces, data loggers for security systems.
+    \end{itemize}
+    \ifthenelse{\boolean{showPatentsInline}}{Patent: UA37291 "Monitoring and video surveillance system" (Ukraine).\\}{}
+    Role: SW\kern-0.2em/HW development\\
+    Technologies: Altera FLEX8K, MCS-51, PIC16, AVR; C, Assembler, AHDL
+    \begin{itemize}
+      \item Schematics development
+      \item Supervising PCB development
+      \item Embedded software and programmable logic firmware development
+      \item Control library development
+    \end{itemize}}
+  \cventry{1990-2005}{Research fellow}{Kyiv Polytechnic Institute, College of Instrument Design and Engineering}{Kyiv}{}{Main projects:
+    \begin{itemize}
+      \item Linear CCD-based portable spectrometers
+      \item Matrix CCD-based spectrometer for aerial photography
+      \item LWIR video camera
+      \item ISA video capture board
+    \end{itemize}
+    Role: SW\kern-0.2em/HW development\\
+    Technologies: Altera small PLD, EP10K, AVR; C, Assembler, PLDasm, AHDL
+    \begin{itemize}
+      \item Schematics and PCB development
+      \item Embedded software and Control libraries development
+    \end{itemize}}
+  \cvitem{1985--1990}{\textit{Some interesting but too outdated projects}}%\\
+}{%
+  \cvitem{1985--1999}{\textit{Many interesting but outdated projects}}%\\
+}%
 
 \section{Education}
 \cventry{1980--1985}{Master's degree}
@@ -143,7 +197,7 @@ WO2006049589A1 and Ukraine patent)\\
 
 \section{Computer skills}
 \cvdoubleitem{Languages}{C, Bash}{Projects}{Linux kernel, RTOS, Bare Metal}
-\cvdoubleitem{CPUs}{ARM32, x86}{MCUs}{STM32, LPC17xx, AVR, MCS51}
+\cvdoubleitem{CPUs}{ARM64, ARM32, x86}{MCUs}{STM32, LPC17xx, AVR, MCS51}
 \cvdoubleitem{Tools}{GCC, GDB, Make, Git, Vim}{HW Tools}{scope, logical
 		     analyzer, JTAG}
 % Should add HDL in this case, so should differentiate knowlege level
@@ -158,27 +212,37 @@ WO2006049589A1 and Ukraine patent)\\
 }\fi
 \cvlanguage{English}{Intermediate}{Speaking, reading and writing}
 
+\pagebreak
 \section{Other Activities}
-
 \cvitem{2017--Today}{Translation of techical books from English to Ukrainian
     \begin{itemize}
-      \item \textit{CLRS 3rd ed.} (translator, \(\sim \)1/4 of the book's content)
+      \item \textit{CLRS 3rd ed.} (translator, \(\sim \)1/4 of the book's content)%%\cite{CLRS}
       \item \textit{"Python crash course"} (co-editor)
       \item A new project is currently in progress
     \end{itemize}}
 \vskip-1em % compensate extra space after itemize
 \cvitem{2017--Today}{Member on StackOverflow (>1k reputation) \cite{stackoverflow}}
-\cvitem{2020--2021}{Instructor of Linux kernel courses
-\ifthenelse{\boolean{linkToLectures}}{\cite{glkt2020}}{(GlobalLogic)}
+\cvitem{2006--Today}{Active Wikipedia editor -- more than 19,000 edits (Ukrainian language edition mostly)}
+\cvitem{2020--2021}{Teacher on Linux kernel courses \ifthenelse{\boolean{linkToLectures}}{\cite{glkt2020}}{(GlobalLogic)}
 }
-\cvitem{1998--2018}{Creator of AVReAl -- AVR ISP programming software for MS-DOS, Windows,
+\cvitem{1998--2018}{AVReAl -- AVR ISP programming software for MS-DOS, Windows,
 Linux and FreeBSD \cite{avreal}}
+
+%% \ifthenelse{\boolean{showPatentsSection}}{%
+%% \section{Patents}
+%% \begin{itemize}
+%% \item
+%% \end{itemize}}{}%
 
 \section{References}
 
-% TODO: Make smalle interval
+% TODO: Make interval smaller
 \begin{thebibliography}{9}
-\bibitem{stackoverflow} {\color{web} \url{https://stackoverflow.com/users/8848476/real}}
+%% \ifthenelse{\boolean{showPatentsSection}}{%
+%% \bibitem{} {\color{web} \url{}}
+%% }{}%
+%%\bibitem{CLRS}{\color{web}\url{https://uk.wikipedia.org/wiki/CLRS}}
+\bibitem{stackoverflow}{\color{web}\url{https://stackoverflow.com/users/8848476/real}}
 \ifthenelse{\boolean{linkToLectures}}{%
 \bibitem{glkt2020} {\color{web} \url{https://github.com/ReAlUA/kernel-lectures}}
 }{}%
